@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Blink-bold';
+  src: url('./assets/fonts/Roboto/Roboto-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Blink-regular';
+  src: url('./assets/fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Blink-regular', sans-serif;
+}
+
+body {
+  @apply bg-bg-black;
+}
+
+.main-page {
+  @apply max-w-[1440px] mx-auto;
+}
+.navbar {
+  @apply flex justify-between pt-10 items-center;
+}
+/* .search-container {
+} */
+.logo-text {
+  @apply text-white font-semibold text-2xl tracking-widest;
+}
+.burger {
+  @apply text-white font-semibold text-3xl cursor-pointer;
+}
+.search-input {
+  @apply bg-search-icon bg-no-repeat bg-[14px] pl-10;
+}
+
+.cards {
+  @apply grid grid-cols-4 gap-[24px] mt-[50px];
+}
+.card {
+  @apply text-white bg-[#202020] rounded-[20px] hover:scale-105 transition-all cursor-pointer;
+}
+.card-video {
+  @apply relative;
+}
+.card-dots {
+  @apply absolute bottom-2 right-0 left-0 flex justify-center items-center	mt-[10px];
+}
+.card-content__top {
+  @apply flex justify-between items-center mb-5;
+}
+.card-content__platforms {
+  @apply flex items-center;
+}
+.card-content__metacritic {
+  @apply text-[#6dc849] border border-[rgba(109,200,73,.4)] rounded-[5px] text-sm	px-[8px] font-semibold;
+}
+.card-content {
+  @apply p-5;
+}
+.card-content__title {
+  @apply text-[24px] font-extrabold mb-3;
+}
+.card-content__button {
+  @apply flex items-center bg-[hsla(0,0%,100%,.1)] rounded-[4px] px-[8px] mr-[5px] hover:bg-white hover:text-[#000] transition-colors;
+}

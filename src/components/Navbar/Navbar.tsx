@@ -1,5 +1,19 @@
+import { Search } from '../';
+
 const Navbar = () => {
-  return <div>Navba2342m34poj2o-3k4-0k23-432kr</div>;
+  return (
+    <div className="navbar">
+      <div className="logo">
+        <h2 className="logo-text">RAWG</h2>
+      </div>
+      <div className="search-container">
+        <Search />
+      </div>
+      <div className="burger-menu">
+        <span className="burger ">...</span>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;

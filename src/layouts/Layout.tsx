@@ -1,11 +1,15 @@
 import React from 'react';
-import { Navbar } from '../components';
+import { Cards, Navbar } from '../components';
+import { GamesListProvider } from '../contexts/GamesListProvider';
 
 const Layout = () => {
   return (
-    <>
-      <Navbar />
-    </>
+    <GamesListProvider>
+      <div className="main-page">
+        <Navbar />
+        <Cards />
+      </div>
+    </GamesListProvider>
   );
 };
 
