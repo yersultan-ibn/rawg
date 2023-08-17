@@ -71,3 +71,6 @@ body {
 .card-content__button {
   @apply flex items-center bg-[hsla(0,0%,100%,.1)] rounded-[4px] px-[8px] mr-[5px] hover:bg-white hover:text-[#000] transition-colors;
 }
+.card-show__item {
+  @apply flex justify-between border-b border-[#cccccc4a] mb-5 pb-2;
+}
