@@ -10,7 +10,7 @@ type Props = {
 const CardCarousel = ({ totalScreenshots, short_screenshots }: Props) => {
   const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
     <div
       className="card-video"
@@ -27,6 +27,7 @@ const CardCarousel = ({ totalScreenshots, short_screenshots }: Props) => {
         {short_screenshots.map((screenshot: any, index: number) => (
           <div key={screenshot.id}>
             <img
+              className="h-[270px] object-cover"
               src={screenshot.image}
               alt={`Screenshot ${index + 1}`}
               onMouseEnter={() => setCurrentScreenshotIndex(index)}

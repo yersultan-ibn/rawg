@@ -18,7 +18,7 @@ const GamesPage = () => {
     <>
       <Cards />
       {/* <MiniLoader /> */}
-      {!loading && <div className='mt-10'>{!miniLoading ? <div>Load more ...</div> : <MiniLoader />}</div>}
+      {!loading && <div className="mt-10">{!miniLoading && <MiniLoader />}</div>}
     </>
   );
 };

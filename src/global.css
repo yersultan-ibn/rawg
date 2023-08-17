@@ -38,7 +38,7 @@ body {
   @apply text-white font-semibold text-3xl cursor-pointer;
 }
 .search-input {
-  @apply bg-search-icon bg-no-repeat bg-[14px] pl-10;
+  @apply bg-search-icon bg-bg-black bg-no-repeat bg-[14px] pl-10;
 }
 
 .cards {
