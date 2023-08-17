@@ -39,13 +39,11 @@ const Card: React.FC<any> = (card) => {
     }
   };
 
-  const platformsIcons = parent_platforms.map((item: any) => {
+  const platformsIcons = parent_platforms?.map((item: any) => {
     return getPlatformIcon(item.platform.slug);
   });
-  
-  const totalScreenshots = short_screenshots.length;
 
-  console.log('card', card);
+  const totalScreenshots = short_screenshots.length;
 
   return (
     <div className="card">
