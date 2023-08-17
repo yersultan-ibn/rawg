@@ -1,19 +1,12 @@
-// interface CardList {
-//   title: string;
-//   content: string;
-// }
-
-// interface CardProps {
-//   card: CardList;
-// }
 import { AiFillWindows, AiOutlineGift, AiFillApple } from 'react-icons/ai';
 import { SiNintendo } from 'react-icons/si';
 import { FaPlaystation, FaLinux } from 'react-icons/fa';
 import { BsXbox, BsThreeDots } from 'react-icons/bs';
 import { HiPlusSm } from 'react-icons/hi';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useState } from 'react';
+import CardCarousel from './CardCarousel/CardCarousel';
+import CardShow from './CardShow/CardShow';
+
 const Card: React.FC<any> = (card) => {
   const {
     name,
@@ -26,8 +19,6 @@ const Card: React.FC<any> = (card) => {
     metacritic,
     released,
   } = card;
-  const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
 
   const getPlatformIcon = (slug: string) => {
     switch (slug) {
@@ -51,48 +42,14 @@ const Card: React.FC<any> = (card) => {
   const platformsIcons = parent_platforms.map((item: any) => {
     return getPlatformIcon(item.platform.slug);
   });
+  
   const totalScreenshots = short_screenshots.length;
 
   console.log('card', card);
+
   return (
     <div className="card">
-      <div
-        className="card-video"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <Carousel
-          showArrows={false}
-          showThumbs={false}
-          showStatus={false}
-          showIndicators={false}
-          selectedItem={currentScreenshotIndex}
-        >
-          {short_screenshots.map((screenshot: any, index: number) => (
-            <div key={screenshot.id}>
-              <img
-                src={screenshot.image}
-                alt={`Screenshot ${index + 1}`}
-                onMouseEnter={() => setCurrentScreenshotIndex(index)}
-              />
-            </div>
-          ))}
-        </Carousel>
-        <div className="card-dots">
-          {Array.from({ length: totalScreenshots }).map((_, index) => (
-            <div
-              key={index}
-              style={{
-                backgroundColor: index === currentScreenshotIndex ? 'white' : 'hsla(0,0%,100%,.7)',
-                opacity: isHovered ? 1 : 0,
-                transition: 'opacity 0.3s ease',
-              }}
-              className="w-[35px] h-[3px] rounded-2xl mx-[4px]"
-              onMouseEnter={() => setCurrentScreenshotIndex(index)}
-            />
-          ))}
-        </div>
-      </div>
+      <CardCarousel totalScreenshots={totalScreenshots} short_screenshots={short_screenshots} />
       <div className="card-content">
         <div className="card-content__top">
           <div className="card-content__platforms">{platformsIcons}</div>
@@ -113,6 +70,7 @@ const Card: React.FC<any> = (card) => {
             <BsThreeDots />
           </button>
         </div>
+        <CardShow released={released} genres={genres} />
       </div>
     </div>
   );
